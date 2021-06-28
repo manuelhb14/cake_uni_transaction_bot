@@ -1,0 +1,39 @@
+{
+    "status": "pending",
+    "monitorId": "GETH_56_C_PROD",
+    "monitorVersion": "0.80.9",
+    "pendingTimeStamp": "2021-04-08T16:33:45.007Z",
+    "pendingBlockNumber": 6391108,
+    "hash": "0xc6ee8cad24412bbb39f8a35b38f15469a3a310e83a17a56284fe02f451b11086",
+    "from": "0x88DA3c2C5526E5ce8cEE7EE87310724bD831da64",
+    "to": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+    "value": "0",
+    "gas": 66645,
+    "gasPrice": "5000000000",
+    "gasPriceGwei": 5,
+    "nonce": 2861,
+    "blockHash": null,
+    "blockNumber": null,
+    "input": "0x095ea7b30000000000000000000000003c3f2049cc17c136a604be23cf7e42745edf3b91ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "asset": "Cake",
+    "watchedAddress": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
+    "direction": "incoming",
+    "counterparty": "0x88DA3c2C5526E5ce8cEE7EE87310724bD831da64",
+    "serverVersion": "0.100.2",
+    "eventCode": "txPool",
+    "timeStamp": "2021-04-08T16:33:44.818Z",
+    "system": "ethereum",
+    "network": "bsc-main",
+    "contractCall": {
+      "contractType": "erc20",
+      "contractAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "methodName": "approve",
+      "params": {
+        "_spender": "0x3C3f2049cc17C136a604bE23cF7E42745edf3b91",
+        "_value": "115792089237316195423570985008687907853269984665640564039457584007913129639935"
+      },
+      "contractDecimals": 18,
+      "contractName": "PancakeSwap Token",
+      "decimalValue": "115792089237316195423570985008687907853269984665640564039457.584007913129639935"
+    }
+  }

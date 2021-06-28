@@ -1,0 +1,5 @@
+keys.py
+**/__pycache__
+**/.vscode
+**/deploy_erc20
+**/.ipynb_checkpoints

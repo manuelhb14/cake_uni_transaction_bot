@@ -1,6 +1,6 @@
 # Uniswap/PancakeSwap transaction bot
 
-Bot to buy, sell, check price of token listed on Uniswap or PancakeSwap.
+Bot to buy, sell, check the price of token listed on Uniswap or PancakeSwap.
 
 Will be added to PyPi in the future.
 
@@ -36,7 +36,7 @@ Import the Txn_bot object that executes all transactions.
 from txns import Txn_bot
 ```
 
-Set the token address where you want to buy, sell, check price. You can check this on **[CoinMarketCap](https://coinmarketcap.com/)** or **[Coingecko](https://coingecko.com/)** by **searching the coin** and looking on **Contract**.
+Set the token address where you want to buy, sell, check the price. You can check this on **[CoinMarketCap](https://coinmarketcap.com/)** or **[Coingecko](https://coingecko.com/)** by **searching the coin** and looking on **Contract**.
 ![Coingecko contract screenshot](/images/screenshot_coingecko.png)
 
 ```(python)
@@ -46,7 +46,7 @@ token_address = "0xf9ba5210f91d0474bd1e1dcdaec4c58e359aad85"
 To create a transaction you need to specify four things:
 
 - **Quantity**: The **amount** of tokens you want to buy/sell, if you want to only check prices quantity will be equal to zero.
-    Decentralized Exchanges (DEX) use the **smallest units** of its network token (Ethereum(ETH) or Binance Coin(BNB)) which are called **Wei**.
+    Decentralized Exchanges (DEX) use the **smallest units** of their network token (Ethereum(ETH) or Binance Coin(BNB)) which are called **Wei**.
     One Wei is 0.000000000000000001 ETH/BNB so if you want to make a transaction of 2.5 ETH/BNB you should specify 2.5x10^18.
 
 ```(python)
@@ -61,7 +61,7 @@ net = 'eth-rinkeby'
 ```
 
 - **Slippage**: Slippage is another characteristic of DEX to **reduce the number of failed transactions**.
-    Slippage let's you specify how much difference from the estimated tokens recevied you actually get. For example if the estimated number of tokens you will receive is 100 and your slippage is at 10%, the transaction will be rejected if the tokens given to you is less than 90 (100-(100*10%) = 90). For more information about slippage you can read [this article on Medium](https://dexenetwork.medium.com/what-is-slippage-and-why-does-it-matter-uniswap-example-43e32d712651).
+    Slippage lets you specify how much difference from the estimated tokens received you actually get. For example if the estimated number of tokens you will receive is 100 and your slippage is at 10%, the transaction will be rejected if the tokens given to you is less than 90 (100-(100*10%) = 90). For more information about slippage, you can read [this article on Medium](https://dexenetwork.medium.com/what-is-slippage-and-why-does-it-matter-uniswap-example-43e32d712651).
     A **higher slippage** means your **transaction is more likely to succeed** but be careful with **frontrunning**. Front-running in cryptocurrency trading is the illegal practice of using insider information to **make securities purchases** knowing other purchasers are going to buy the same currency and then **selling it at a higher price**. The **max** slippage is **49%**.
 
 ```(python)
@@ -69,17 +69,17 @@ net = 'eth-rinkeby'
 slippage = 30 #%
 ```
 
--- **Gas Price**: Gas price is a **fee** to execute your transaction and it is measured in **Gwei**.
+-- **Gas Price**: The gas price is a **fee** to execute your transaction and it is measured in **Gwei**.
     The value of one Gwei is 0.000000001 ETH/BNB.
     The gas price you select on **PancakeSwap** will be normally **5 Gwei** (0.000000005 or 5x10^9 ETH/BNB). (You can use **higher gas prices** but **usually** on PancakeSwap is **not necessary**)
-    On **Uniswap** the gas price oscillates **depending on the network congestion**. You can see the **real time prices** on **[GasNow website](https://www.gasnow.org/)** (For Uniswap I **suggest** using **Rapid or Fast** gas prices).
-    The **higher gas price** you set the **faster your transaction will be completed**.
+    On **Uniswap** the gas price oscillates **depending on the network congestion**. You can see the **real-time prices** on **[GasNow website](https://www.gasnow.org/)** (For Uniswap I **suggest** using **Rapid or Fast** gas prices).
+    The **higher the gas price** you set the **faster your transaction will be completed**.
 
 ```(python)
 gas_price = 1*10**9
 ```
 
-Finally we can buy the token with the buy_token method that will return a transaction ID which can be tracked and reviewed on [EtherScan](https://etherscan.io/).
+Finally, we can buy the token with the buy_token method that will return a transaction ID which can be tracked and reviewed on [EtherScan](https://etherscan.io/).
 
 ```(python)
 bot = Txn_bot(token_address, quantity, net, slippage, gas_price)

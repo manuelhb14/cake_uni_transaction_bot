@@ -24,10 +24,10 @@ class Txn_bot():
 
     def connect(self):
         if self.net=="eth-mainnet":
-            w3 = Web3(Web3.HTTPProvider("https://mainnet.infura.io/v3/7c4531e0951a47629316f7e9568f4d80"))
+            w3 = Web3(Web3.HTTPProvider("https://mainnet.infura.io/v3/{}".format(keys.infura_project_id)))
             w3.middleware_onion.inject(geth_poa_middleware, layer=0)
         elif self.net=="eth-rinkeby":
-            w3 = Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/7c4531e0951a47629316f7e9568f4d80"))
+            w3 = Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/{}".format(keys.infura_project_id)))
             w3.middleware_onion.inject(geth_poa_middleware, layer=0)
         elif self.net=="bsc-mainnet":
             w3 = Web3(Web3.HTTPProvider("https://bsc-dataseed.binance.org/"))

@@ -5,6 +5,10 @@ import time
 import keys
 import sys
 
+# TODO: Add project secret to infura node 
+# TODO: Change prints to logging
+# TODO: Add testing for edge cases
+
 class Txn_bot():
     def __init__(self, token_address, quantity, net, slippage, gas_price):
         self.net = net
@@ -38,10 +42,7 @@ class Txn_bot():
         return w3
 
     def set_address(self):
-        if "eth" in self.net:
-            return(keys.uniswap_address, keys.uniswap_private_key)
-        else:
-            return(keys.pancake_address, keys.pancake_private_key)
+        return(keys.metamask_address, keys.metamask_private_key)
 
     def set_router(self):   #TODO: Refactor functions into shorter ones?
         if "eth" in self.net:

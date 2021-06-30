@@ -82,6 +82,7 @@ gas_price = 1*10**9
 ```
 
 Finally, we can buy the token with the buy_token method that will return a transaction ID which can be tracked and reviewed on [EtherScan](https://etherscan.io/). Example:
+
 ![Ehterscan transaction screenshot](images/txn_etherscan.png)
 
 ```(python)

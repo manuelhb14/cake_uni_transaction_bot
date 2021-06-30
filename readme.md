@@ -24,9 +24,11 @@ metamask_address = ""
 metamask_private_key = ""
 ```
 
-### Main file
+## Examples
 
-You can see an example for buying a token on this [file](buy_example.py)
+### Buy token
+
+You can see an example for buying a token on this [file](buy_example.py).
 
 #### Explanation of the code
 
@@ -37,6 +39,7 @@ from txns import Txn_bot
 ```
 
 Set the token address where you want to buy, sell, check the price. You can check this on **[CoinMarketCap](https://coinmarketcap.com/)** or **[Coingecko](https://coingecko.com/)** by **searching the coin** and looking on **Contract**.
+
 ![Coingecko contract screenshot](/images/screenshot_coingecko.png)
 
 ```(python)
@@ -65,7 +68,6 @@ net = 'eth-rinkeby'
     A **higher slippage** means your **transaction is more likely to succeed** but be careful with **frontrunning**. Front-running in cryptocurrency trading is the illegal practice of using insider information to **make securities purchases** knowing other purchasers are going to buy the same currency and then **selling it at a higher price**. The **max** slippage is **49%**.
 
 ```(python)
-
 slippage = 30 #%
 ```
 

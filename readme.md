@@ -40,7 +40,7 @@ from txns import Txn_bot
 
 Set the token address where you want to buy, sell, check the price. You can check this on **[CoinMarketCap](https://coinmarketcap.com/)** or **[Coingecko](https://coingecko.com/)** by **searching the coin** and looking on **Contract**.
 
-![Coingecko contract screenshot](/images/screenshot_coingecko.png)
+![Coingecko contract screenshot](images/coingecko_contracts.png)
 
 ```(python)
 token_address = "0xf9ba5210f91d0474bd1e1dcdaec4c58e359aad85"
@@ -81,7 +81,8 @@ slippage = 30 #%
 gas_price = 1*10**9
 ```
 
-Finally, we can buy the token with the buy_token method that will return a transaction ID which can be tracked and reviewed on [EtherScan](https://etherscan.io/).
+Finally, we can buy the token with the buy_token method that will return a transaction ID which can be tracked and reviewed on [EtherScan](https://etherscan.io/). Example:
+![Ehterscan transaction screenshot](images/txn_etherscan.png)
 
 ```(python)
 bot = Txn_bot(token_address, quantity, net, slippage, gas_price)
@@ -89,3 +90,4 @@ bot.buy_token()
 ```
 
 TODO: Add sell and check_price example codes.
+TODO: Add images to README

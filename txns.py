@@ -20,7 +20,7 @@ class Txn_bot():
         self.token_address = Web3.toChecksumAddress(token_address)
         self.token_contract = self.set_token_contract()
         print("Current balance of {}: {}".format(self.token_contract.functions.symbol().call() ,self.token_contract.functions.balanceOf(self.address).call() / (10 ** self.token_contract.functions.decimals().call())))
-        self.router_address, self.router = self.set_router()    # add router to access buy and sell txns, consult prices, etc
+        self.router_address, self.router = self.set_router()
         self.quantity = quantity
         self.slippage = 1 - (slippage/100)
         self.gas_price = gas_price

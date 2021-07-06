@@ -25,6 +25,18 @@ class Txn_bot():
         self.slippage = 1 - (slippage/100)
         self.gas_price = gas_price
 
+    def __init__(self, token_address, net):
+        self.net = net
+        self.w3 = self.connect()
+        print("Access to Infura node: {}".format((self.w3.isConnected())))
+        self.address, self.private_key = self.set_address()
+        print("Address: {}".format(self.address))
+        print("Current balance of WETH/WBNB: {}".format(self.w3.fromWei(self.w3.eth.get_balance(self.address), 'ether')))
+        self.token_address = Web3.toChecksumAddress(token_address)
+        self.token_contract = self.set_token_contract()
+        print("Current balance of {}: {}".format(self.token_contract.functions.symbol().call() ,self.token_contract.functions.balanceOf(self.address).call() / (10 ** self.token_contract.functions.decimals().call())))
+        self.router_address, self.router = self.set_router()
+
 
     def connect(self):
         if self.net=="eth-mainnet":
@@ -69,7 +81,6 @@ class Txn_bot():
                 contract_abi = json.load(f)
             token_contract = self.w3.eth.contract(address=token_address, abi=contract_abi)
         return token_contract
-
 
     def get_amounts_out_buy(self):
         return self.router.functions.getAmountsOut(
@@ -151,3 +162,15 @@ class Txn_bot():
         print(txn.hex())
         txn_receipt = self.w3.eth.waitForTransactionReceipt(txn)
         print(txn_receipt)
+
+    def check_price_busd_usdc(self):
+        if (self.net == "eth-mainnet"):
+            return self.router.functions.getAmountsOut(
+                int(1*10**18),
+                [self.token_address, "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"]
+                ).call()[1]
+        elif (self.net == "bsc-mainnet"):
+            return self.router.functions.getAmountsOut(
+                int(1*10**18),
+                [self.token_address, "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"]
+                ).call()[1]

@@ -1,5 +1,7 @@
 # Uniswap/PancakeSwap transaction bot
 
+### !!! **Adding Uniswap V3 functions and compatibility for both versions**
+
 Bot to buy, sell, check the price of token listed on Uniswap or PancakeSwap.
 
 Will be added to PyPi in the future.
